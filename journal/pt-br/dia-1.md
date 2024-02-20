@@ -24,7 +24,14 @@ Numa tradução livre para português:
 
 A partir disto podemos entender que um array é uma coleção de itens de mesmo tamanho em memória acessiveis por meio de um índice que permita calcular sua posição na memória. Por exemplo: se temos um array de intens que ocupam 4 bytes na memória e a nossa memória é endereçada em espaços de um byte, temos que a posição de cada item desse array seria índice x tamanho em bytes do tipo (1 x 4, 2 x 2, 3 x 4, etc).
 
-O [_Dictionrary of Algorithms and Data Structures_](https://www.nist.gov/dads/) do [NIST (National Institute of Standards and Technoly)](https://xlinux.nist.gov/) define _array_ como "um conjunto de items podem ser acessados de forma aleatória utilizando inteiros, o índice" e indica que comumente um _array_ possui tamanho fixo, comportamento que pode ser modificado em outras estruturas que derivam e/ou especializam os _arrays_ básicos, como o _array dinâmico_, e costuma ser iniciado em 0 ou 1, dependendo da implementação.
+O [_Dictionrary of Algorithms and Data Structures_](https://www.nist.gov/dads/) do [NIST (*National Institute of Standards and Technoly*)](https://xlinux.nist.gov/) define _array_ como "um conjunto de items podem ser acessados de forma aleatória utilizando inteiros, o índice" e indica que comumente um _array_ possui tamanho fixo, comportamento que pode ser modificado em outras estruturas que derivam e/ou especializam os _arrays_ básicos, como o _array dinâmico_, e costuma ser iniciado em 0 ou 1, dependendo da implementação.
 
 Portando, adicionando esta definição ao nosso entendimento sobre _arrays_, temos que:
 > Array é uma coleção finita, com tamanho máximo definido, de items de mesmo tamanho em memória acessíveis por meio de um índice inteiros, inciando em 0 ou 1, que permite calcular a sua posição em memória.
+
+---
+
+## Referências
+1. [JavaScript: para que serve um Array?](https://www.alura.com.br/artigos/javascript-para-que-serve-array?_hsmi=270746392) Alura, 12-06-2023. Acessado em 11-02-2024.
+2. [Array (data structures)](https://en.wikipedia.org/wiki/Array_(data_structure)). Wikipédia. Acessado em 11-02-2024.
+3. [array](https://xlinux.nist.gov/dads/HTML/array.html). Paul E. Black, [_Dictionrary of Algorithms and Data Structures_](https://www.nist.gov/dads/), 16-11-2016. Acessado em 13-02-2024.
