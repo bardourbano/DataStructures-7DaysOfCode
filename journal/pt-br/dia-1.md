@@ -12,7 +12,7 @@ O artigo detalha se extende um pouco mais, porém no propósito de explicar como
 
 ## O que são arrays?
 
-Lembro que a primeira vez que tive contato com o termo "array" foi durante as aulas de POO quando fiz técnico em automação e, honestamente, não lemnbro da explicação do professor, mas lembro de pensar em `List` como umas forma mais fácil trabalhar dos vetores que tinha visto em C. Um tempo depois, agora na faculdade, lembro das minhas aulas sobre listas em C (simples, duplas, circulares) e pensar "ah, ok, então na real isso são os arrays em Java por baixo de tudo. Alguns podem me indagar o que eu vi sobre isso nas aulas de Estruturas de dados e para estes eu direi que tudo que ficou na minha memória dessas aulas foram árvores.
+Lembro que a primeira vez que tive contato com o termo "array" foi durante as aulas de POO quando fiz técnico em automação e, honestamente, não lemnbro da explicação do professor, mas lembro de pensar em `ArrayList` como umas forma mais fácil trabalhar dos vetores que tinha visto em C. Um tempo depois, agora na faculdade, lembro das minhas aulas sobre listas em C (simples, duplas, circulares) e pensar "ah, ok, então na real isso são os arrays em Java por baixo de tudo. Alguns podem me indagar o que eu vi sobre isso nas aulas de Estruturas de dados e para estes eu direi que tudo que ficou na minha memória dessas aulas foram árvores.
 
 Bem, o que de fato é array?
 
@@ -28,6 +28,13 @@ O [_Dictionrary of Algorithms and Data Structures_](https://www.nist.gov/dads/) 
 
 Portando, adicionando esta definição ao nosso entendimento sobre _arrays_, temos que:
 > Array é uma coleção finita, com tamanho máximo definido, de items de mesmo tamanho em memória acessíveis por meio de um índice inteiros, inciando em 0 ou 1, que permite calcular a sua posição em memória.
+
+Beleza, agora que já temos umas base de o que é um array, posso responder às dúvidas que carrego desde a adolescência.
+
+### Como é um array em Java? `ArrayList` é um array?
+Bem, segundo a [documentação](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ArrayList.html), `ArrayList` é classificado como um *"resizable-array"*, um "_array_ redimensionável" ou "dinâmico". todo `ArrayList` possui uma capacidade, que é o tamanho do array utilizado para armazenar os elementos da lista. Ele também herda da interface `List` a carecterística de seus elementos serem acessíveis por meio de um índice inteiro iniciado em 0. Além disso instâncias de `ArrayList` tem que swer declaradas passando o tipo (ex. `String`, `Integer`, `MyCustomClass`) e não aceita elementos de outro tipo, porém pode ocorrer de a lista ser instanciada sem informar um tipo. Até então o `ArrayList` está aderente à nossa definição de _array_, só que há um detalhe a ser considerado: a capacidade de um `ArrayList` aumenta automaticamente conforme elementos são adicionados à lista, ou seja, teoricamente não é uma coleção com tamanho máximo definido, diferente do que nossa definição. Dito tudo isso, como ele adere à maior parte da definição, acho que podemos dizer que nosso "_array_ dinâmico" é um _array-lite_.
+
+
 
 ---
 
