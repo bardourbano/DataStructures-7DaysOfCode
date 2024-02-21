@@ -34,21 +34,56 @@ Beleza, agora que já temos umas base de o que é um array, posso responder às 
 ### Como é um array em Java? `ArrayList` é um array?
 Bem, segundo a [documentação](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ArrayList.html), `ArrayList` é classificado como um *"resizable-array"*, um "_array_ redimensionável" ou "dinâmico". todo `ArrayList` possui uma capacidade, que é o tamanho do array utilizado para armazenar os elementos da lista. Ele também herda da interface `List` a carecterística de seus elementos serem acessíveis por meio de um índice inteiro iniciado em 0. Além disso instâncias de `ArrayList` tem que swer declaradas passando o tipo (ex. `String`, `Integer`, `MyCustomClass`) e não aceita elementos de outro tipo, porém pode ocorrer de a lista ser instanciada sem informar um tipo.
 
-> #### `ArrayList` com tipo definido:
+#### `ArrayList` com tipo definido:
 >
 > ```java
 > // um ArrayList de números inteiros
 > ArrayList<Integer> arrayDeInteiros = new ArrayList<>();
 > ```
 
-> #### `ArrayList` sem tipo definido (*raw*):
+#### `ArrayList` sem tipo definido (*raw*):
 > ```java
 > // um ArrayList sem tipo definido
 > ArrayList<> arraySemTipo = new ArrayList<>();
 > ```
 
-Até então o `ArrayList` está aderente à nossa definição de _array_, só que há um detalhe a ser considerado: a capacidade de um `ArrayList` aumenta automaticamente conforme elementos são adicionados à lista, ou seja, teoricamente não é uma coleção com tamanho máximo definido, diferente do que nossa definição. Dito tudo isso, como ele adere à maior parte da definição, acho que podemos dizer que nosso "_array_ dinâmico" é um _array-lite_.
+Até então o `ArrayList` está aderente à nossa definição de _array_, só que há um detalhe a ser considerado: a capacidade de um `ArrayList` aumenta automaticamente conforme elementos são adicionados à lista, ou seja, teoricamente não é uma coleção com tamanho máximo definido, diferente do que nossa definição. Dito tudo isso, como ele adere à maior parte da definição, acho que podemos dizer que nosso "_array_ dinâmico" é, sim, um *array*.
 
+E como é um *array* "comum" em Java?
+
+Segundo a [especificação](https://docs.oracle.com/javase/specs/jls/se21/html/jls-10.html) da linguagem, um *array* só pode conter elementos de um dado tipo (referências quando se trata de uma classe ou diretamente o valor quando se tratam de tipos primitivos), seus elementos são acessíveis por meio de um índice de números inteiros não-negativos iniciado em 0 e possui capacidade máxima finita e imutável, definida no momento da criação sua criação.
+
+Somente por esta definição já podemos dizer que um array em Java é um array segundo a definição, mas ainda quero trazer alguns destaques que achei curiosos:
+
+- Um array declarado em Java, tecnicamente, é um ponteiro para um array do tipo especificado;
+- Um array não existe na memória no momento da sua declaração, somente após a expressão de criação do mesmo;
+    ```java
+    int[] inteiros; // array não existe em memória
+    float[] flutuantes = new float[3]; // array existe em memória
+
+    inteiros = new int[5]; // agora o array existe em memória
+    ```
+- arrays em Java são objetos e, na prática, são parecidos com uma instância da seguinte classe de exemplo:
+    ```java
+    class ArrayClass<T> implements Cloneable, java.io.Serializable {
+        public final int length = X;
+
+        /**
+         * Sobrecarrega o método clone de Object.
+         *
+         * O clone realiza uma cópia superficial quando o array é multidimensional,
+         * só copiando o primeiro nível. Os níveis a partir do segundo são
+         * referências compartilhada com o array original.
+         */
+        public T[] clone() {
+            try {
+                return (T[])super.clone();
+            } catch (CloneNotSupportedException e) {
+                throw new InternalError(e.getMessage());
+            }
+        }
+    }
+    ```
 
 
 ---
@@ -57,3 +92,4 @@ Até então o `ArrayList` está aderente à nossa definição de _array_, só qu
 1. [JavaScript: para que serve um Array?](https://www.alura.com.br/artigos/javascript-para-que-serve-array?_hsmi=270746392) Alura, 12-06-2023. Acessado em 11-02-2024.
 2. [Array (data structures)](https://en.wikipedia.org/wiki/Array_(data_structure)). Wikipédia. Acessado em 11-02-2024.
 3. [array](https://xlinux.nist.gov/dads/HTML/array.html). Paul E. Black, [_Dictionrary of Algorithms and Data Structures_](https://www.nist.gov/dads/), 16-11-2016. Acessado em 13-02-2024.
+4. [Chapter 10. Arrays](https://docs.oracle.com/javase/specs/jls/se21/html/jls-10.html). Oracle. James Gosling, Bill Joy, Guy Steele, Gilad Bracha, Alex Buckley, Daniel Smith, Gavin Bierman, 23-08-2023. Acessado em 21-02-2024.
