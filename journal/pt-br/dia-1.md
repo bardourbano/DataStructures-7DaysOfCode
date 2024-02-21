@@ -32,7 +32,22 @@ Portando, adicionando esta definição ao nosso entendimento sobre _arrays_, tem
 Beleza, agora que já temos umas base de o que é um array, posso responder às dúvidas que carrego desde a adolescência.
 
 ### Como é um array em Java? `ArrayList` é um array?
-Bem, segundo a [documentação](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ArrayList.html), `ArrayList` é classificado como um *"resizable-array"*, um "_array_ redimensionável" ou "dinâmico". todo `ArrayList` possui uma capacidade, que é o tamanho do array utilizado para armazenar os elementos da lista. Ele também herda da interface `List` a carecterística de seus elementos serem acessíveis por meio de um índice inteiro iniciado em 0. Além disso instâncias de `ArrayList` tem que swer declaradas passando o tipo (ex. `String`, `Integer`, `MyCustomClass`) e não aceita elementos de outro tipo, porém pode ocorrer de a lista ser instanciada sem informar um tipo. Até então o `ArrayList` está aderente à nossa definição de _array_, só que há um detalhe a ser considerado: a capacidade de um `ArrayList` aumenta automaticamente conforme elementos são adicionados à lista, ou seja, teoricamente não é uma coleção com tamanho máximo definido, diferente do que nossa definição. Dito tudo isso, como ele adere à maior parte da definição, acho que podemos dizer que nosso "_array_ dinâmico" é um _array-lite_.
+Bem, segundo a [documentação](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/ArrayList.html), `ArrayList` é classificado como um *"resizable-array"*, um "_array_ redimensionável" ou "dinâmico". todo `ArrayList` possui uma capacidade, que é o tamanho do array utilizado para armazenar os elementos da lista. Ele também herda da interface `List` a carecterística de seus elementos serem acessíveis por meio de um índice inteiro iniciado em 0. Além disso instâncias de `ArrayList` tem que swer declaradas passando o tipo (ex. `String`, `Integer`, `MyCustomClass`) e não aceita elementos de outro tipo, porém pode ocorrer de a lista ser instanciada sem informar um tipo.
+
+> #### `ArrayList` com tipo definido:
+>
+> ```java
+> // um ArrayList de números inteiros
+> ArrayList<Integer> arrayDeInteiros = new ArrayList<>();
+> ```
+
+> #### `ArrayList` sem tipo definido (*raw*):
+> ```java
+> // um ArrayList sem tipo definido
+> ArrayList<> arraySemTipo = new ArrayList<>();
+> ```
+
+Até então o `ArrayList` está aderente à nossa definição de _array_, só que há um detalhe a ser considerado: a capacidade de um `ArrayList` aumenta automaticamente conforme elementos são adicionados à lista, ou seja, teoricamente não é uma coleção com tamanho máximo definido, diferente do que nossa definição. Dito tudo isso, como ele adere à maior parte da definição, acho que podemos dizer que nosso "_array_ dinâmico" é um _array-lite_.
 
 
 
