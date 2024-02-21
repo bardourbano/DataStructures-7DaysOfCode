@@ -63,7 +63,7 @@ Somente por esta definição já podemos dizer que um array em Java é um array 
 
     inteiros = new int[5]; // agora o array existe em memória
     ```
-- arrays em Java são objetos e, na prática, são parecidos com uma instância da seguinte classe de exemplo:
+- arrays em Java são objetos e, na prática, são parecidos com uma instância da seguinte classe de exemplo [na especificação](https://docs.oracle.com/javase/specs/jls/se21/html/jls-10.html#jls-10.7):
     ```java
     class ArrayClass<T> implements Cloneable, java.io.Serializable {
         public final int length = X;
